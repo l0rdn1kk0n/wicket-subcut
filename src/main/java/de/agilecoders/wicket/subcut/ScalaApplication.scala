@@ -3,10 +3,28 @@ package de.agilecoders.wicket.subcut
 import org.apache.wicket.protocol.http.WebApplication
 
 /**
- * TODO: document
+ * scala application object
  *
  * @author miha
  */
-object ScalaApplication extends WebApplication {
-    def getHomePage = classOf[HomePage]
+object ScalaApplication {
+
+    implicit val bindingModule = ConfigurationModule
+
+    /**
+     * @return current active scala web application instance
+     */
+    def get = WebApplication.get().asInstanceOf[ScalaApplication]
+
+}
+
+/**
+ * The scala web application
+ */
+class ScalaApplication extends WebApplication {
+
+    /**
+     * @return homepage class
+     */
+    override def getHomePage = classOf[HomePage]
 }
