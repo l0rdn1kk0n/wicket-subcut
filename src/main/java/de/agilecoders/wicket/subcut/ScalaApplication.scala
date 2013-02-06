@@ -9,8 +9,6 @@ import org.apache.wicket.protocol.http.WebApplication
  */
 object ScalaApplication {
 
-    implicit val bindingModule = ConfigurationModule
-
     /**
      * @return current active scala web application instance
      */
